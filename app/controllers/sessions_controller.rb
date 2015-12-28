@@ -8,9 +8,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         log_in user
-        #params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        #redirect_back_or user
-        redirect_to user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_back_or user
       else
         message  = "Account not activated. "
         message += "Check your email for the activation link."
@@ -24,7 +23,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
+
   end
 end
