@@ -12,7 +12,7 @@ Rails.application.configure do
       :port => '587',
       :domain => 'heroku.com',
       :user_name => "ngocvu.uet@gmail.com",
-      :password => "knfxxxuxcnliecrc",
+      :password => "kgit adnfxxxuxcnliecrc",
       :authentication => :plain,
       :enable_starttls_auto => true
   }
