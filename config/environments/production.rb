@@ -1,6 +1,21 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # Don't care if the mailer can't send.
+  config.action_mailer.delivery_method = :smtp
+  host = 'https://chapter10.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => '587',
+      :domain => 'heroku.com',
+      :user_name => "dinhphu94@gmail.com",
+      :password => "wevqrlfkvidxexvo",
+      :authentication => :plain,
+      :enable_starttls_auto => true
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -42,7 +57,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
