@@ -1,0 +1,28 @@
+<% provide(:title, @micropost.title) %>
+<div class="row">
+  <aside class="col-md-4">
+   <h4>
+    <%=  @micropost.title%>
+    </h4>
+    <%= @micropost.content %>
+    <%= image_tag @micropost.picture.url if @micropost.picture? %>
+    <span class="timestamp">
+    Posted <%= time_ago_in_words(@micropost.created_at) %> ago. by 
+   <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span></p>
+    <% if current_user?(@micropost.user) %>
+      <%= link_to "delete", @micropost, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+    <%= render 'shared/comment_form' %>
+  </aside>
+  <div class="col-md-8">
+    <% if @micropost.comments.any? %>
+      <h3>Comments (<%= @micropost.comments.count %>)</h3>
+      <ol class="microposts">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
+</div>
