@@ -5,7 +5,8 @@ class MicropostsController < ApplicationController
 
    def show
     @micropost = Micropost.find(params[:id])
-    @comment = @micropost.comments.build if logged_in?
+    @comment = @micropost.comments.build 
+    #@comment = @micropost.comments
     @comments = @micropost.comments.paginate(page: params[:page])
   end
 

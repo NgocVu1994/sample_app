@@ -7,9 +7,10 @@ class CommentsController < ApplicationController
 		@comment = @micropost.comments.build(comment_params)
 		if @comment.save
 			flash[:success] = "Comment created"
-			redirect_to request.referrer
+			redirect_to request.referrer 
 		else
-			render 'microposts/show'
+			#render 'microposts/show'
+			redirect_to root_url
 		end
 	end
 
