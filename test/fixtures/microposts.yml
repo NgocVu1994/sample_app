@@ -2,8 +2,10 @@
 
 one:
   content: MyText
+  title: MyText
   user_id: 
 
 two:
   content: MyText
+  title: MyText
   user_id: 
