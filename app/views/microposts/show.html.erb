@@ -10,15 +10,16 @@
     by 
     <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
     </span>
-    <div class="new_comment">
-    <%= render 'shared/comment_form' if logged_in?%>
-    </div>
     </br>
     <%= link_to "Back", root_url %>
   </aside>
   <div class="col-md-8">
+   <div class="new_comment">
+    <%= render 'shared/comment_form' if logged_in?%>
+    </div>
     <% if @micropost.comments.any? %>
-      <h3>Comments (<%= @micropost.comments.count %>)</h3>
+      <h3 >Comments<div id="count" class="count"><%= @micropost.comments.count %></div>
+      </h3>
       <ol id= "comments" class="comments">
         <%= render @comments %>
       </ol>
