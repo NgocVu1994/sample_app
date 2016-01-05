@@ -6,7 +6,7 @@
     <%= comment.created_at.strftime("%b %d, %Y") %> by
     <span class="user"><%= link_to comment.user.name, comment.user %></span>
     <% if current_user?(comment.user) %>
-    <%= link_to "delete", @comment, method: :delete, data: {confirm: "You sure"}%>  
+    <%= link_to "delete", comment, method: :delete, data: {confirm: "You sure"}%>  
     </span>
     <%end%>
 </li>
