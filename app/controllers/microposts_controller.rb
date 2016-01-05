@@ -6,14 +6,13 @@ class MicropostsController < ApplicationController
    def show
     @micropost = Micropost.find(params[:id])
     @comment = @micropost.comments.build 
-    #@comment = @micropost.comments
     @comments = @micropost.comments.paginate(page: params[:page])
   end
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Entry created!"
       redirect_to root_url
     else
       @feed_items = []
@@ -23,7 +22,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "Entry deleted"
     redirect_to request.referrer || root_url
 
   end

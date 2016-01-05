@@ -1,13 +1,11 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-    <%= f.text_area :title, placeholder: "Enter title" %>
+    <div class= "title1"><%= f.text_area :title, placeholder: "Enter title" %>
+    </div>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
 <% end %>
 <script type="text/javascript">
   $('#micropost_picture').bind('change', function() {
