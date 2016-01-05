@@ -7,7 +7,10 @@ class Micropost < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 140 }
   validates :title, presence: true, length: { maximum: 140 }
   validate  :picture_size
- 
+  before_update :set_time
+  def set_time
+    self.time_edit = Time.zone.now
+  end
 
   private
 

@@ -26,3 +26,31 @@ h2 {
   height: 30px;
   margin-bottom: 15px;
 }
+
+
+
+
+li.dropdown.edit {
+  position: absolute;
+  right: 0;
+  list-style: none;
+  .dropdown-menu {
+    margin-left: -160px;
+    margin-top: 0px;
+  }
+}
+.edit-micropost {
+  height: 0;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    .glyphicon.glyphicon-pencil {
+      color: rgba(0, 0, 0, 0.55);
+      right: 30px;
+      top: 0px;
+      position: absolute;
+      font-size: 11px;
+    }
+}
+
