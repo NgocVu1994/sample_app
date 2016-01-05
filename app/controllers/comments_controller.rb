@@ -5,14 +5,15 @@ class CommentsController < ApplicationController
 	def create
 		@micropost = Micropost.find(params[:comment][:micropost_id])
 		@comment = @micropost.comments.build(comment_params)
-		if @comment.save
-			flash[:success] = "Comment created"
-			redirect_to request.referrer 
-		else
-			#render 'microposts/show'
-			redirect_to root_url
-		end
-	end
+		respond_to do |format|
+      	if !@comment.save
+        	flash[:alert] = "You can not comment"
+    	 end
+     	 format.html { redirect_to @micropost }
+     	 format.js { @comments = @micropost.comments }
+     	end
+
+    end
 
 	def edit
 		@comment = Comment.find(params[:id])
@@ -23,10 +24,8 @@ class CommentsController < ApplicationController
 	def update
 		@comment = Comment.find(params[:id])
 		@micropost = @comment.micropost
-		if @comment.update(comment_params)
-      	 	flash[:success] = "Edit comment successfully"
-   		else
-      		flash[:alert] = "Can not edit comment"
+		if !@comment.update(comment_params)
+      	 	flash[:alert] = "Can not edit comment"
     	end
     	redirect_to @micropost
   	end
