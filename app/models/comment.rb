@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
   validates :micropost_id, presence: true
   validates :content, presence: true, length: {maximum: 140}
+  before_update :set_time
+  def set_time
+  	self.time_edit = Time.zone.now
+  end
 end

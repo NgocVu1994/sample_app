@@ -14,9 +14,14 @@
       </li>
     <%end%>
       </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(comment.created_at) %> ago in
-    <%= comment.created_at.strftime("%b %d, %Y") %> by
+  <span class="timestamp">Posted 
+    <% unless comment.time_edit.nil?%>
+      <%= time_ago_in_words(comment.time_edit) %> ago. Edited 
+    <%else%>
+      <%= time_ago_in_words(comment.created_at) %>
+    <%end%>
+    in <%= comment.created_at.strftime("%b %d, %Y") %> by
     <span class="user"><%= link_to comment.user.name, comment.user %></span>
     </span>
 </li>
+
