@@ -10,8 +10,9 @@
     by 
     <span class="user"><%= link_to @micropost.user.name, @micropost.user %></span>
     </span>
-    
     <%= render 'shared/comment_form' if logged_in?%>
+    </br>
+    <%= link_to "Back", root_url %>
   </aside>
   <div class="col-md-8">
     <% if @micropost.comments.any? %>

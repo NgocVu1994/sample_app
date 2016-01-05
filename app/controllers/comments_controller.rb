@@ -14,6 +14,23 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def edit
+		@comment = Comment.find(params[:id])
+		@micropost = @comment.micropost
+		@user = @comment.user
+		
+	end
+	def update
+		@comment = Comment.find(params[:id])
+		@micropost = @comment.micropost
+		if @comment.update(comment_params)
+      	 	flash[:success] = "Edit comment successfully"
+   		else
+      		flash[:alert] = "Can not edit comment"
+    	end
+    	redirect_to @micropost
+  	end
+
 	def destroy
 		@comment.destroy
 		flash[:success] = "Comment deleted"

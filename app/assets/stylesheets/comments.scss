@@ -45,3 +45,41 @@ h2 {
     margin-right: 10px;
     margin-top: 5px;
   }
+
+li.dropdown.edit {
+  position: absolute;
+  right: 0;
+  list-style: none;
+  .dropdown-menu {
+    margin-left: -160px;
+    margin-top: 5px;
+  }
+}
+.edit-comment {
+  height: 0;
+    left: 0;
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    .glyphicon.glyphicon-pencil {
+      color: rgba(0, 0, 0, 0.55);
+      right: 30px;
+      top: 0px;
+      position: absolute;
+      font-size: 11px;
+    }
+}
+
+.comments {
+  .row {
+    padding-bottom: 10px;
+    .row {
+      float: left;
+      width: 90%;
+      padding-left: 15px;
+      strong {
+        color: #3b5998;
+      }
+    }
+  }
+}
