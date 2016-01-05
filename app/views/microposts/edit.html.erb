@@ -1,6 +1,7 @@
 <div class="row">
-	<div class="col-md-4"></div>
-<div class="col-md-8">
+	<div class="col-md-2"></div>
+<div class="col-md-10">
+<h1>Edit Entry</h1>
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
     <div class= "title1"><%= f.text_area :title, placeholder: "Edit title" %>
